@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% set active_page = "Resume" %}
+
+{% block content %}
+	<div id="resume">
+		<table >  
+			<tr>
+				<td align="bottom"><h1> JJ Maxwell </h1></td>		
+				<td align="center"> <img src="static/me2.jpg" height="150px"></td>
+				<td align="right"> jjmaxwell4@gmail.com<br>
+					226.989.3805<br>
+					<a href="static/resume.pdf" target="_blank"> Download a pdf copy</a></td>
+			</tr>
+		</table>
+
+		<div id="resume_header"> Work Experience </div>
+		<table >  
+			<tr>
+				<td><b> Performance Measurement Coordinator</b> </td>
+				<td align="right"> <i>Fall 2012</i></td>
+			</tr>
+			<tr>
+				<td> Research In Motion </td>
+			</tr>
+		</table>
+		<ul>
+			<li>Created KPI definitions through data analysis to enable management to identify process areas that fail to meet business objectives</li>
+			<li>Built metrics using SQL to track resource management, project completion and planned vs. earned value</li>
+			<li>Trained management on software use</li>
+		</ul>
+		<table>  
+			<tr>
+				<td><b> Controls System Engineer </b> </td>
+				<td align="right"> <i>Winter 2012</i></td>
+			</tr>
+			<tr>
+				<td> Brock Solutions </td>
+			</tr>
+		</table>
+		<ul>
+			<li>Set up hardware, programmed PLC's and emulated a complex +$200 million controls system while meeting tight deadlines for one of the busiest airports in the world</li>
+		</ul>
+		<table>  
+			<tr>
+				<td><b> Robotics Technician </b> </td>
+				<td align="right"> <i>Summer 2011</i></td>
+			</tr>
+			<tr>
+				<td> Rosen Inspection Technologies</td>
+			</tr>
+		</table>
+		<ul>
+			<li>Mechanically and electrically tested and maintained +$5 million pipeline inspection tools prior and following deployment in extrememly harsh conditions</li>
+			<li>Loaded and verified software and electrical capabilities in remote locations and tracked equipment throughout pipeline inspection</li>
+		</ul>
+
+		<div id="resume_header"> Education </div>
+		<table >  
+			<tr>
+				<td><b> Mechatronics Engineering</b> </td>
+				<td align="right"> <i>Sept 2009 - Current</i></td>
+			</tr>
+			<tr>
+				<td> University of Waterloo </td>
+			</tr>
+		</table>
+		<ul>
+			<li>Built Real Time Operating System in C which received 100%</li>
+			<li>Created robotic device from PCB capable of navigating complex course. Achieved 95%</li>
+			<li>Wrote software in C for mp3 player for Altera FPGA which achieved 95%</li>
+		</ul>
+
+		<div id="resume_header"> Skills </div>
+		<ul>
+			<li>Python, C, MySQL, HTML, CSS, PLC, Pics, AutoMOD, VBA</li>
+			<li>Mechanical Maintenance, Electrical Testing, Hardware setup</li>
+		</ul>
+		
+		<div id="resume_header"> Other Interests</div>
+		<ul>
+			<li>Business & entrepreneurship; lived at mobile/media incubator Velocity in winter 2012; helped start Instaping.com</li>
+			<li>Travel and exploring</li>
+			<li>Marathon runner, squash, tennis, skiing, hockey, football, soccer</li>
+			<li>Active stock trader</li>
+		</ul>
+{% endblock %}
