@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% set active_page = "Blog" %}
+
+{% block content %}
+	<div id="post">	
+  	{{post.render() | safe}}
+    <br>
+	</div>
+{% endblock %}
+

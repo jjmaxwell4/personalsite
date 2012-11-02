@@ -1,0 +1,12 @@
+<base href="/blog/" />
+<h3> 
+  <a href={{p.key().id()}}>{{p.subject}} </a>
+</h3>
+
+<h4>
+  {{p.created.strftime("%b %d, %Y")}}
+</h4>
+
+<p>
+  {{p._render_text | safe}}
+</p>  

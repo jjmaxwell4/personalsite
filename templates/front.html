@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% set active_page = "Blog" %}
+
+{% block content %}
+
+  {% for p in posts %}
+	<div id="post">	
+    {{ p.render() | safe }}
+    <br>
+	</div>
+  {% endfor %}
+
+{% endblock %}

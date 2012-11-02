@@ -21,8 +21,10 @@
 </head>
 {% set navigation_bar = [
     ('/', 'Home', 'About'),
+    ('/education/', 'Education', 'Education'),
     ('/', 'Home', '<img src="static/icon.png" alt="-|-">'),
-    ('/resume', 'Resume', 'Resume')
+    ('/blog/', 'Blog', 'Blog'),
+    ('/resume/', 'Resume', 'Resume')
 ] -%}
 {% set active_page = active_page|default('about') -%}
 
