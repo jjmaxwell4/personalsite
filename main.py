@@ -36,6 +36,8 @@ def render_str(template, **params):
 
 class BaseHandler(webapp2.RequestHandler):
     def render(self, template, **kw):
+        user = users.get_current_user()
+        admin = users.is_current_user_admin()
         self.response.out.write(render_str(template, **kw))
 
     def write(self, *a, **kw):
@@ -103,7 +105,7 @@ class PostPage(BlogHandler):
             self.error(404)
             return
 
-        self.render("permalink.html", post = post)
+        self.render("permalink.html", post = post, admin = admin)
 
 class NewPost(BlogHandler):
     def get(self):
@@ -112,20 +114,11 @@ class NewPost(BlogHandler):
 
     def post(self):
         have_error = False
-        password = self.request.get('password')
-        params = dict(password = password)
-
-        if password == 'secure':
-            self.write('')
-        else:
-            params['error_password'] = "That wasn't a valid password."
-            have_error = True
-            self.render('login.html', **params)
 
         subject = self.request.get('subject')
         content = self.request.get('content')
 
-        if subject and content:
+        if subject and content and admin:
             p = Post(parent = blog_key(), subject = subject, content = content)
             p.put()
             self.redirect('/blog/%s' % str(p.key().id()))
@@ -145,11 +138,28 @@ class Login(BlogHandler):
         self.response.out.write("<html><body>%s</body></html>" % greeting)
 
 class Edit(BlogHandler):
-    def get(self):
-        self.render('home.html')
-        # self.response.out.write("<html><body>TEST!!!</body></html>")
-        # if admin:
-        #     self.render("newpost.html")          
+    def get(self, post_id):
+        if admin:
+            key = db.Key.from_path('Post', int(post_id), parent=blog_key())
+            post = db.get(key)   
+            subject = post.subject
+            content = post.content
+
+            self.render("newpost.html", subject=subject, content=content)   
+
+    def post(self, post_id):
+        have_error = False
+
+        subject = self.request.get('subject')
+        content = self.request.get('content')
+
+        if subject and content and admin:
+            p = Post(parent = blog_key(), subject = subject, content = content)
+            p.put()
+            self.redirect('/blog/%s' % str(p.key().id()))
+        else:
+            error = "subject and content, please!"
+            self.render("newpost.html", subject=subject, content=content, error=error)  
 
 app = webapp2.WSGIApplication([('/', Home),
 								('/read/', Reads),
@@ -157,7 +167,7 @@ app = webapp2.WSGIApplication([('/', Home),
 								('/resume/', Resume),
                                 ('/blog/?', BlogFront),
                                 ('/blog/([0-9]+)', PostPage),
-                                ('/blog/([0-9].*)/edit/', Edit),
+                                ('/blog/([0-9].*)/edit', Edit),
                                 ('/blog/newpost', NewPost),
                                ('/blog/login', Login),
                                ('/ping/', Ping),

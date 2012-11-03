@@ -2,13 +2,12 @@
 {% set active_page = "Blog" %}
 
 {% block content %}
-	{% if admin %}
-		{{post.edit() | safe}}
-	{% else %}
-		<div id="post">	
-	  	{{post.render() | safe}}
-	    <br>
-		</div>
-	{% endif %}
+	<div id="post">	
+  	{{post.render() | safe}}
+	
+	{% if admin %}<u> <a href={{post.key().id()}}/edit> Edit </a></u>  {% endif %}
+    <br>
+	</div>
+
 {% endblock %}
 

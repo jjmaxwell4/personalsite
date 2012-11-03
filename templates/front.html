@@ -6,8 +6,9 @@
   {% for p in posts %}
 	<div id="post">	
     {{ p.render() | safe }}
-     {% if admin %}<u> <a href={{p.key().id()}}/edit/> Edit </a></u>  {% endif %}
+	{% if admin %}<u> <a href={{p.key().id()}}/edit> Edit </a></u>  {% endif %}
 	</div>
   {% endfor %}
 
+  {% if admin %}<u> <a href=newpost> New Post </a></u>  {% endif %}
 {% endblock %}
