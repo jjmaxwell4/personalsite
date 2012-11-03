@@ -5,8 +5,9 @@
 	<div id="post">	
   	{{post.render() | safe}}
 	
-	{% if admin %}<u> <a href={{post.key().id()}}/edit> Edit </a></u>  {% endif %}
     <br>
+    
+	{% if admin %}<u> <a href={{post.key().id()}}/edit> Edit </a></u>  {% endif %}
 	</div>
 
 {% endblock %}

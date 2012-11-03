@@ -177,3 +177,10 @@ A.current {
     color: #aaaaaa;
     margin-top:-2%;
 }
+
+
+#post p {
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
+}

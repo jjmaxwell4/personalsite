@@ -2,17 +2,17 @@
 {% set active_page = "Blog" %}
 
 {% block content %}
-  <h2>new post</h2>
+  <h2>Edit/Create New Post</h2>
 
     <form method="post">
       <label>
-        <div>subject</div>
+        <div>Subject</div>
         <input type="text" name="subject" value="{{subject}}">
       </label>
 
       <label>
-        <div>blog</div>
-        <textarea name="content">{{content}}</textarea>
+        <div>Content</div>
+        <textarea name="content" rows="20" cols="150">{{content}}</textarea>
       </label>
 
       <div class="error">{{error}}</div>

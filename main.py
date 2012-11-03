@@ -27,6 +27,7 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                autoescape = True)
 
+#Global user/admin used for Login Purposes
 user = users.get_current_user()
 admin = users.is_current_user_admin()
 
