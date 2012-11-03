@@ -3,6 +3,7 @@
 <head>
   <link type="text/css" rel="stylesheet" href="/static/main.css" />
   <meta name="description" content="JJ Maxwell's Personal Website.">
+  <html manifest="test.appcache">
   <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -23,8 +24,8 @@
     ('/', 'Home', 'About'),
     ('/education/', 'Education', 'Education'),
     ('/', 'Home', '<img src="/static/icon.png" alt="-|-">'),
-    ('/blog/', 'Blog', 'Blog'),
-    ('/resume/', 'Resume', 'Resume')
+    ('/resume/', 'Resume', 'Resume'),
+    ('/blog/', 'Blog', 'Blog')
 ] -%}
 {% set active_page = active_page|default('about') -%}
 

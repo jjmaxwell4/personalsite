@@ -21,10 +21,14 @@ import webapp2
 import jinja2
 
 from google.appengine.ext import db
+from google.appengine.api import users
 
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                autoescape = True)
+
+
+
 
 def render_str(template, **params):
     t = jinja_env.get_template(template)
@@ -55,6 +59,9 @@ class Home(BaseHandler):
     def get(self):
         self.render('home.html')
 
+class Ping(BaseHandler):
+    def get(self):
+        self.render('ping.html')
 
 class Reads(BaseHandler):
     def get(self):
@@ -100,10 +107,7 @@ class PostPage(BlogHandler):
 
 class NewPost(BlogHandler):
     def get(self):
-        if self.request.get('password') == 'secure':
-            self.render('newpost.html')
-        else:
-            self.render('login.html')
+        self.render('login.html')
 
     def post(self):
         have_error = False
@@ -152,5 +156,6 @@ app = webapp2.WSGIApplication([('/', Home),
                                 ('/blog/([0-9]+)', PostPage),
                                 ('/blog/newpost', NewPost),
                                ('/blog/login', Login),
+                               ('/ping/', Ping),
                                ],
                               debug=True)
