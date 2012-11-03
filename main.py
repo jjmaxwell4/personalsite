@@ -27,8 +27,8 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                autoescape = True)
 
-
-
+user = users.get_current_user()
+admin = users.is_current_user_admin()
 
 def render_str(template, **params):
     t = jinja_env.get_template(template)
@@ -92,7 +92,7 @@ class Post(db.Model):
 class BlogFront(BlogHandler):
     def get(self):
         posts = db.GqlQuery("select * from Post order by created desc limit 10")
-        self.render('front.html', posts = posts)
+        self.render('front.html', posts = posts, admin = admin)
 
 class PostPage(BlogHandler):
     def get(self, post_id):
@@ -107,7 +107,8 @@ class PostPage(BlogHandler):
 
 class NewPost(BlogHandler):
     def get(self):
-        self.render('login.html')
+        if users.is_current_user_admin():
+            self.render('newpost.html')
 
     def post(self):
         have_error = False
@@ -134,19 +135,21 @@ class NewPost(BlogHandler):
 
 class Login(BlogHandler):
     def get(self):
-        self.render("login.html")
-
-    def post(self):
-        have_error = False
-        password = self.request.get('password')
-        params = dict(password = password)
-
-        if password == 'secure':
-            self.redirect('newpost', password)
+        if user:
+            greeting = ("Welcome, %s! (<a href=\"%s\">sign out</a>)" %
+                        (user.nickname(), users.create_logout_url("/")))
         else:
-            params['error_password'] = "That wasn't a valid password."
-            have_error = True
-            self.render('login.html', **params)
+            greeting = ("<a href=\"%s\">Sign in or register</a>." %
+                        users.create_login_url("/"))
+
+        self.response.out.write("<html><body>%s</body></html>" % greeting)
+
+class Edit(BlogHandler):
+    def get(self):
+        self.render('home.html')
+        # self.response.out.write("<html><body>TEST!!!</body></html>")
+        # if admin:
+        #     self.render("newpost.html")          
 
 app = webapp2.WSGIApplication([('/', Home),
 								('/read/', Reads),
@@ -154,6 +157,7 @@ app = webapp2.WSGIApplication([('/', Home),
 								('/resume/', Resume),
                                 ('/blog/?', BlogFront),
                                 ('/blog/([0-9]+)', PostPage),
+                                ('/blog/([0-9].*)/edit/', Edit),
                                 ('/blog/newpost', NewPost),
                                ('/blog/login', Login),
                                ('/ping/', Ping),

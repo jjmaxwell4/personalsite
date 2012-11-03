@@ -2,9 +2,13 @@
 {% set active_page = "Blog" %}
 
 {% block content %}
-	<div id="post">	
-  	{{post.render() | safe}}
-    <br>
-	</div>
+	{% if admin %}
+		{{post.edit() | safe}}
+	{% else %}
+		<div id="post">	
+	  	{{post.render() | safe}}
+	    <br>
+		</div>
+	{% endif %}
 {% endblock %}
 
