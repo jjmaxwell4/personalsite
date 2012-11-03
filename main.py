@@ -36,8 +36,6 @@ def render_str(template, **params):
 
 class BaseHandler(webapp2.RequestHandler):
     def render(self, template, **kw):
-        user = users.get_current_user()
-        admin = users.is_current_user_admin()
         self.response.out.write(render_str(template, **kw))
 
     def write(self, *a, **kw):
@@ -93,11 +91,13 @@ class Post(db.Model):
 
 class BlogFront(BlogHandler):
     def get(self):
+        admin = users.is_current_user_admin()
         posts = db.GqlQuery("select * from Post order by created desc limit 10")
         self.render('front.html', posts = posts, admin = admin)
 
 class PostPage(BlogHandler):
     def get(self, post_id):
+        admin = users.is_current_user_admin()
         key = db.Key.from_path('Post', int(post_id), parent=blog_key())
         post = db.get(key)
 
@@ -118,7 +118,7 @@ class NewPost(BlogHandler):
         subject = self.request.get('subject')
         content = self.request.get('content')
 
-        if subject and content and admin:
+        if subject and content and users.is_current_user_admin():
             p = Post(parent = blog_key(), subject = subject, content = content)
             p.put()
             self.redirect('/blog/%s' % str(p.key().id()))
@@ -128,23 +128,23 @@ class NewPost(BlogHandler):
 
 class Login(BlogHandler):
     def get(self):
-        if user:
+        admin = users.is_current_user_admin()
+        if admin:
             greeting = ("Welcome, %s! (<a href=\"%s\">sign out</a>)" %
-                        (user.nickname(), users.create_logout_url("/")))
+                        (user.nickname(), users.create_logout_url("/blog")))
         else:
             greeting = ("<a href=\"%s\">Sign in or register</a>." %
-                        users.create_login_url("/"))
+                        users.create_login_url("/blog"))
 
         self.response.out.write("<html><body>%s</body></html>" % greeting)
 
 class Edit(BlogHandler):
     def get(self, post_id):
-        if admin:
+        if users.is_current_user_admin():
             key = db.Key.from_path('Post', int(post_id), parent=blog_key())
             post = db.get(key)   
             subject = post.subject
             content = post.content
-
             self.render("newpost.html", subject=subject, content=content)   
 
     def post(self, post_id):
@@ -153,10 +153,14 @@ class Edit(BlogHandler):
         subject = self.request.get('subject')
         content = self.request.get('content')
 
-        if subject and content and admin:
-            p = Post(parent = blog_key(), subject = subject, content = content)
-            p.put()
-            self.redirect('/blog/%s' % str(p.key().id()))
+
+        if subject and content and users.is_current_user_admin():
+            key = db.Key.from_path('Post', int(post_id), parent=blog_key())
+            post = db.get(key)   
+            post.subject = subject
+            post.content = content
+            post.put()
+            self.redirect('/blog/%s' % str(post.key().id()))
         else:
             error = "subject and content, please!"
             self.render("newpost.html", subject=subject, content=content, error=error)  
