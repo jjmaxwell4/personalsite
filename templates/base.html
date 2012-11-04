@@ -22,7 +22,7 @@
 </head>
 {% set navigation_bar = [
     ('/', 'Home', 'About'),
-    ('/education/', 'Education', 'Education'),
+    ('/read/', 'Reading List', 'Reading List'),
     ('/', 'Home', '<img src="/static/icon.png" alt="-|-">'),
     ('/resume/', 'Resume', 'Resume'),
     ('/blog/', 'Blog', 'Blog')
@@ -40,8 +40,6 @@
           {% endfor %}
         </tr>
       </table>
-    </div>
-    <div id="header-bottom">
     </div>
     {% block content %}
     {% endblock %}

@@ -177,4 +177,4 @@ app = webapp2.WSGIApplication([('/', Home),
                                ('/blog/login', Login),
                                ('/ping/', Ping),
                                ],
-                              debug=True)
+                              debug=True) 

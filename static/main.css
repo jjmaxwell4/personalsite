@@ -68,11 +68,6 @@ table {
     table-layout:fixed;
 	}
 
-#header-bottom {
-	border-bottom: 1px solid #CDCDCD;
-	margin: 0 -1% 0 -1%;
-}
-
 #text {
 	width: 50%;	
 	padding: 0;
@@ -105,7 +100,6 @@ table {
 }
 #title h1 {
 	width: 30%;
-    border-bottom: 1px solid #aaaaaa;
 	text-align: center; 
     margin-left: auto;
     margin-right: auto;
@@ -129,10 +123,11 @@ A.current {
 #resume {
 	width:80%;
 	padding: 0;
-    margin-left: auto;
-    margin-right: auto;
-    font-size:14px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size:14px;
 }
+
 #resume_header {
 	background-color: #bbbbbb;
 	padding: 1% 2% 1% 2%;
@@ -183,4 +178,34 @@ A.current {
     font-size: 14px;
     margin-left: auto;
     margin-right: auto;
+}
+
+#book {
+  width:70%;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#book table {
+  width: 100%;
+  text-decoration:none;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  table-layout:auto;
+}
+
+#book td
+{
+  text-align:left;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
 }
