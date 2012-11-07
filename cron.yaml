@@ -1,0 +1,4 @@
+cron:
+- description: daily ping
+  url: /ping/
+  schedule: every 24 hours
