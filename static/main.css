@@ -121,7 +121,7 @@ A.current {
 
   /* Imported Resume Stuff */
 #resume {
-	width:80%;
+	width:900px;
 	padding: 0;
   margin-left: auto;
   margin-right: auto;
@@ -129,7 +129,10 @@ A.current {
 }
 
 #resume_header {
-	background-color: #bbbbbb;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.1), rgba(0,0,0,0.05), rgba(0,0,0,0)); 
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0.1), rgba(0,0,0,0.05), rgba(0,0,0,0)); 
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0.1), rgba(0,0,0,0.05), rgba(0,0,0,0)); 
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0.1), rgba(0,0,0,0.05), rgba(0,0,0,0)); 
 	padding: 1% 2% 1% 2%;
 	font-size: 16px;
 	font-style: italic;
