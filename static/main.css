@@ -31,7 +31,8 @@ body  {
 }
 
 #container { 
-	width: 96%;  
+	width: 96%;
+  min-height: 94%;  
 	background: #FFFFFF;
 	padding: 1%;
 	margin: 0% 1% 0% 1%; 
@@ -51,7 +52,7 @@ body  {
 }
 
 #content {
-  padding-top: 0%;
+  padding-top: 2%;
   padding-bottom: 1%; 
   margin-left: 18%;
   margin-right: 5%;
@@ -66,10 +67,8 @@ table {
 	}
 
 #text {
-  width: 500px;
-	padding: 0;
-  margin-right: auto;
-  margin-left: auto;
+  width: 600px;
+	padding-top: 1%;
 }
 
 #text h4 {
@@ -135,10 +134,8 @@ A.current {
 }
 
 #post {
-	width: 70%;	
+	width: 600px;	
 	padding: 0;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #post h3 {
