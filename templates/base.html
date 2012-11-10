@@ -21,9 +21,11 @@
   <title>JJ Maxwell  - {{active_page }}</title>
 </head>
 {% set navigation_bar = [
+    ('/', 'Pic', '<img src="/static/me2.jpg" alt="-|-">'),
+    ('/', 'JJ', '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspJJ Maxwell'),
+    ('', '', '<hr>'),
     ('/', 'Home', 'About'),
     ('/read/', 'Reading List', 'Reading List'),
-    ('/', 'Home', '<img src="/static/icon.png" alt="-|-">'),
     ('/resume/', 'Resume', 'Resume'),
     ('/blog/', 'Blog', 'Blog')
 ] -%}
@@ -33,16 +35,18 @@
   <div id="container">
     <div id="header">
       <table> 
-        <tr>
           {% for href, id, caption in navigation_bar %}
-            <td><a {% if id == active_page %} class="current"{% endif
-            %} href="{{ href|e }}">{{caption|safe }}</a></td>
+          <tr><td>
+            <a {% if id == active_page %} class="current"{% endif
+            %} href="{{ href|e }}">{{caption|safe }}</a>
+          </td></tr>
           {% endfor %}
-        </tr>
       </table>
     </div>
+    <div id="content">
     {% block content %}
     {% endblock %}
+    </div>
   </div>
 </body>
 
