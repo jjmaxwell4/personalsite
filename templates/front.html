@@ -5,7 +5,8 @@
 
   {% for p in posts %}
 	<div id="post">	
-    {{ p.render() | safe }}
+    {{ p.render_snipit() | safe }}
+    <p><a href={{p.key().id()}}> Continue Reading </a></p>
 	<br>
 	{% if admin %}<u> <a href={{p.key().id()}}/edit> Edit </a></u>  {% endif %}
 	</div>
