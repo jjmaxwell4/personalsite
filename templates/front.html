@@ -4,7 +4,7 @@
 {% block content %}
 
   {% for p in posts %}
-	<div id="text">	
+	<div id="post">	
     {{ p.render_snipit() | safe }}
     <p><a href={{p.key().id()}}> Continue Reading </a></p>
 	<br>

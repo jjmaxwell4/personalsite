@@ -68,6 +68,8 @@ table {
 #text {
   width: 500px;
 	padding: 0;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 #text h4 {
@@ -133,7 +135,7 @@ A.current {
 }
 
 #post {
-	width: 50%;	
+	width: 70%;	
 	padding: 0;
     margin-left: auto;
     margin-right: auto;
