@@ -167,6 +167,10 @@ A.current {
     color: #999999;
 }
 
+#post a{
+  text-decoration:  underline;
+}
+
 #post h4 {
 	text-align: right; 
     font-size: 15px;

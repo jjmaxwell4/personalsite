@@ -71,11 +71,11 @@ class Post(db.Model):
     last_modified = db.DateTimeProperty(auto_now = True)
 
     def render(self):
-        self._render_text = self.content.replace('\n', '<br>')
+        self._render_text = self.content.replace('\n', '</p> <p>&nbsp&nbsp&nbsp&nbsp')
         return render_str("post.html", p = self)
 
     def render_snipit(self):
-        self.content = self.content.replace('\n', '<br>')
+        self.content = self.content.replace('\n', '</p> <p>&nbsp&nbsp&nbsp&nbsp')
         snipit = ' '.join(self.content.split(' ')[:100])+" ..."
         self._render_text = snipit
         return render_str("post.html", p = self)
@@ -121,8 +121,8 @@ class Login(BlogHandler):
     def get(self):
         admin = users.is_current_user_admin()
         if admin:
-            greeting = ("Welcome, %s! (<a href=\"%s\">sign out</a>)" %
-                        (user.nickname(), users.create_logout_url("/blog")))
+            greeting = ("Only Administrators Should be Back Here! (<a href=\"%s\">sign out</a>)" %
+                        ( users.create_logout_url("/blog")))
         else:
             greeting = ("<a href=\"%s\">Sign in or register</a>." %
                         users.create_login_url("/blog"))
