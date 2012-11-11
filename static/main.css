@@ -1,6 +1,6 @@
 html, body {
     margin: 0;
-    width: 100%;
+    width: 100%; 
     height: 100%; 
 }
  
@@ -46,9 +46,9 @@ body  {
 	text-align: left;
   top: 0;
   position: fixed;
-  -moz-box-shadow: 0 0 2px 2px #b7bfff;
-  -webkit-box-shadow: 0 0 2px 2px#b7bfff;
-  box-shadow: 0 0 2px 2px #b7bfff;
+  -moz-box-shadow: 0 0 1px 1px #b7bfff;
+  -webkit-box-shadow: 0 0 1px 1px#b7bfff;
+  box-shadow: 0 0 1px 1px #b7bfff;
 }
 
 #content {
