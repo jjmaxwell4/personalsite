@@ -6,7 +6,7 @@ html, body {
  
 body  {
 	font: 80% Helvetica, Arial,Verdana, sans-serif;
-	background-color: #EEEEEE;
+	background-color: #CCCCCC;
 	margin: 0; 
 	padding: 0;
 	text-align: center; 
@@ -46,9 +46,9 @@ body  {
 	text-align: left;
   top: 0;
   position: fixed;
-  -moz-box-shadow: 0 0 1px 1px #EEEEEE;
-  -webkit-box-shadow: 0 0 1px 1px#EEEEEE;
-  box-shadow: 0 0 1px 1px #EEEEEE;
+  -moz-box-shadow: 0 0 2px 2px #b7bfff;
+  -webkit-box-shadow: 0 0 2px 2px#b7bfff;
+  box-shadow: 0 0 2px 2px #b7bfff;
 }
 
 #content {
@@ -68,7 +68,6 @@ table {
 
 #text {
   width: 600px;
-	padding-top: 1%;
 }
 
 #text h4 {

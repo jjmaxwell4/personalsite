@@ -60,6 +60,10 @@ class Resume(BaseHandler):
     def get(self):
         self.render('resume.html')
 
+class Quotes(BaseHandler):
+    def get(self):
+        self.render('quotes.html')
+
 ###### Blog ######
 def blog_key(name = 'default'):
     return db.Key.from_path('blogs', name)
@@ -166,5 +170,6 @@ app = webapp2.WSGIApplication([('/', Home),
                                 ('/blog/newpost', NewPost),
                                ('/blog/login', Login),
                                ('/ping/', Ping),
+                               ('/quotes/', Quotes)
                                ],
                               debug=True) 
