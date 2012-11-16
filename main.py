@@ -52,9 +52,9 @@ class Reads(BaseHandler):
     def get(self):
         self.render('read.html')
 
-class Education(BaseHandler):
+class Projects(BaseHandler):
     def get(self):
-        self.render('education.html')
+        self.render('projects.html')
 
 class Resume(BaseHandler):
     def get(self):
@@ -162,7 +162,7 @@ class Edit(BlogHandler):
 
 app = webapp2.WSGIApplication([('/', Home),
 								('/read/', Reads),
-								('/education/', Education),
+								('/projects/', Projects),
 								('/resume/', Resume),
                                 ('/blog/?', BlogFront),
                                 ('/blog/([0-9]+)', PostPage),
