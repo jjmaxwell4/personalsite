@@ -39,15 +39,15 @@ body  {
 } 
 
 #header {
-	width: 170px;	
+	width: 162px;	
 	margin-top: 5%;
   padding: 1%;
 	text-align: left;
   top: 0;
   position: fixed;
-  -moz-box-shadow: 0 0 2px 2px #999999;
-  -webkit-box-shadow: 0 0 2px 2px #999999;
-  box-shadow: 0 0 2px 2px #999999;
+  -moz-box-shadow: 0 0 1px 1px #999999;
+  -webkit-box-shadow: 0 0 1px 1px #999999;
+  box-shadow: 0 0 1px 1px #999999;
 }
 
 #content {
