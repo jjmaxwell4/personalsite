@@ -126,10 +126,10 @@ class Login(BlogHandler):
         admin = users.is_current_user_admin()
         if admin:
             greeting = ("Only Administrators Should be Back Here! (<a href=\"%s\">sign out</a>)" %
-                        ( users.create_logout_url("/blog")))
+                        ( users.create_logout_url("")))
         else:
             greeting = ("<a href=\"%s\">Sign in or register</a>." %
-                        users.create_login_url("/blog"))
+                        users.create_login_url(""))
 
         self.response.out.write("<html><body>%s</body></html>" % greeting)
 
@@ -168,7 +168,7 @@ app = webapp2.WSGIApplication([('/', Home),
                                 ('/blog/([0-9]+)', PostPage),
                                 ('/blog/([0-9].*)/edit', Edit),
                                 ('/blog/newpost', NewPost),
-                               ('/blog/login', Login),
+                               ('/login', Login),
                                ('/ping/', Ping),
                                ('/quotes/', Quotes)
                                ],
