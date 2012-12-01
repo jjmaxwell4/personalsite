@@ -31,19 +31,46 @@
 {% set active_page = active_page|default('about') -%}
 
 <body>
+  <script src="static/jquery.js"></script>
+  <script> 
+    var leftInit = $(".scroll_fixed").offset().left;
+    var top = $('.scroll_fixed').offset().top - parseFloat($('.scroll_fixed').css('margin-top').replace(/auto/, 0));
+
+
+    $(window).scroll(function(event) {
+        var x = 0 - $(this).scrollLeft();
+        var y = $(this).scrollTop();
+
+        // whether that's below the form
+        if (y >= top) {
+            // if so, ad the fixed class
+            $('.scroll_fixed').addClass('fixed');
+        } else {
+            // otherwise remove it
+            $('.scroll_fixed').removeClass('fixed');
+        }
+
+        $(".scroll_fixed").offset({
+            left: x + leftInit
+        });
+
+    });
+  </script>
   <div id="container">
     <div id="header">
-      <table> 
-          <tr><td><p style="text-align: center; font-size: 20px; color: #C0C0C0; margin: -1%;">JJ Maxwell</p></td></tr>
-          <tr><td><img src="/static/me2.jpg" alt="-|-"></td></tr>
-          <tr><td><hr></td></tr>
-          {% for href, id, caption in navigation_bar %}
-          <tr><td>
-            <a {% if id == active_page %} class="current"{% endif
-            %} href="{{ href|e }}">{{caption|safe }}</a>
-          </td></tr>
-          {% endfor %}
-      </table>
+      <div id="scroll_fixed">
+        <table> 
+            <tr><td><p style="text-align: center; font-size: 20px; color: #C0C0C0; margin: -1%;">JJ Maxwell</p></td></tr>
+            <tr><td><img src="/static/me2.jpg" alt="-|-"></td></tr>
+            <tr><td><hr></td></tr>
+            {% for href, id, caption in navigation_bar %}
+            <tr><td>
+              <a {% if id == active_page %} class="current"{% endif
+              %} href="{{ href|e }}">{{caption|safe }}</a>
+            </td></tr>
+            {% endfor %}
+        </table>
+      </div>
     </div>
     <div id="content">
     {% block content %}

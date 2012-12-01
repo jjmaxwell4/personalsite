@@ -40,11 +40,10 @@ body  {
 
 #header {
 	width: 162px;	
-	margin-top: 20px;
+	margin-top: 15px;
   padding: 3px;
 	text-align: left;
-  top: 0;
-  position: fixed;
+  float: left;
   -moz-box-shadow: 0 0 1px 1px #999999;
   -webkit-box-shadow: 0 0 1px 1px #999999;
   box-shadow: 0 0 1px 1px #999999;
