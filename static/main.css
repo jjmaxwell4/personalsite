@@ -6,7 +6,7 @@ html, body {
  
 body  {
 	font: 80% Helvetica, Arial,Verdana, sans-serif;
-	background-color: #dedede;
+	background-color: #FFFFFF;
 	margin: 0; 
 	padding: 0;
 	text-align: center; 
@@ -67,7 +67,7 @@ table {
 
 #text {
   width: 650px;
-  background-color: #FBFBFB;
+  background-color: #F0F0F0;
   padding: 9px;
   -moz-box-shadow: 0 0 2px 2px #696969;
   -webkit-box-shadow: 0 0 2px 2px#696969;
@@ -82,9 +82,8 @@ table {
 }
 
 #title {
-  padding-left: 1%;
-  margin-top: -2%;
-  margin-bottom: -2%;
+  margin-top: -10px;
+  margin-bottom: -10px;
 }
 
 #title h1 {
@@ -118,7 +117,7 @@ A.current {
 #resume {
 	width:900px;
   font-size:14px;
-  background-color: #FBFBFB;
+  background-color: #F0F0F0;
   padding: 10px;
   -moz-box-shadow: 0 0 2px 2px #696969;
   -webkit-box-shadow: 0 0 2px 2px#696969;
@@ -126,11 +125,8 @@ A.current {
 }
 
 #resume_header {
-  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.1), rgba(0,0,0,0.05), rgba(0,0,0,0)); 
-  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0.1), rgba(0,0,0,0.05), rgba(0,0,0,0)); 
-  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0.1), rgba(0,0,0,0.05), rgba(0,0,0,0)); 
-  background-image:      -o-linear-gradient(left, rgba(0,0,0,0.1), rgba(0,0,0,0.05), rgba(0,0,0,0)); 
-	padding: 5px 10px 5px 10px;
+  background-color: #D0D0D0;
+  padding: 5px 10px 5px 10px;
 	font-size: 16px;
 	font-style: italic;
 	font-weight: bold;
